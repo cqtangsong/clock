@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+        	#ani-box{
+        		position:relative;
+        		margin:280px;
+        	}
+			.leaf{
+				transform:rotate(45deg);
+				position:absolute;
+				top:20px;
+				left:20px;
+				height:200px;
+				width:200px;
+				background-color:rgba(180,30,100,0.5);
+				border-radius:200px 0px;
+				transform-origin:right top;
+			}
+			@keyframes trans1{
+				0%{
+					transform:rotate(45deg);
+				}
+				100%{
+					transform:rotate(45deg);
+				}
+			}
+			@keyframes trans2{
+				0% {
+					transform:rotate(45deg);
+				}
+				100% {
+					transform:rotate(81deg);
+				}
+			}
+			@keyframes trans3{
+				0% {
+					transform:rotate(45deg);
+				}
+				100% {
+					transform:rotate(117deg);
+				}
+			}
+			@keyframes trans4{
+				0% {
+					transform:rotate(45deg);
+				}
+				100% {
+					transform:rotate(153deg);
+				}
+			}
+			@keyframes trans5{
+				0% {
+					transform:rotate(45deg);
+				}
+				100% {
+					transform:rotate(186deg);
+				}
+			}
+			@keyframes trans6{
+				0% {
+					transform:rotate(45deg);
+				}
+				100% {
+					transform:rotate(222deg);
+				}
+			}
+			.leaf:nth-Child(1){
+				animation: trans1 5s ease 1;
+				animation-fill-mode : forwards;
+			}
+			.leaf:nth-Child(2){
+				animation: trans2 5s ease 1;
+				animation-fill-mode : forwards;
+			}
+			.leaf:nth-Child(3){
+				animation: trans3 5s ease 1;
+				animation-fill-mode : forwards;
+			}
+			.leaf:nth-Child(4){
+				animation: trans4 5s ease 1;
+				animation-fill-mode : forwards;
+			}
+			.leaf:nth-Child(5){
+				animation: trans5 5s ease 1;
+				animation-fill-mode : forwards;
+			}
+			.leaf:nth-Child(6){
+				animation: trans6 5s ease 1;
+				animation-fill-mode : forwards;
+			}
+        </style>
+    </head>
+    <body>
+    	<div id="ani-box">
+    		<div class="leaf"></div>
+    		<div class="leaf"></div>
+    		<div class="leaf"></div>
+    		<div class="leaf"></div>
+    		<div class="leaf"></div>
+    		<div class="leaf"></div>
+    	</div>
+    </body>
+</html>
