@@ -1,0 +1,275 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function SectionToChinese(n) {
+        if (20 > n && n > 9) {
+          const N = n % 10;
+          const chn = [
+            "十",
+            "十一",
+            "十二",
+            "十三",
+            "十四",
+            "十五",
+            "十六",
+            "十七",
+            "十八",
+            "十九"
+          ];
+          let s = chn[N];
+          return s;
+        }
+        var chnNumChar = [
+          "零",
+          "一",
+          "二",
+          "三",
+          "四",
+          "五",
+          "六",
+          "七",
+          "八",
+          "九"
+        ];
+        const chnNumChar1 = [
+          ["", "万", "亿"],
+          ["", "十", "百", "千"]
+        ];
+        let num = Math.abs(n);
+        let s = "";
+
+        num = Math.floor(num);
+        for (let i = 0; i < chnNumChar1[0].length && num > 0; i += 1) {
+          let p = "";
+          for (let j = 0; j < chnNumChar1[1].length && num > 0; j += 1) {
+            p = chnNumChar[num % 10] + chnNumChar1[1][j] + p;
+            num = Math.floor(num / 10);
+          }
+          s =
+            p.replace(/(零.)*零$/, "").replace(/^$/, "零") +
+            chnNumChar1[0][i] +
+            s;
+        }
+
+        return s.replace(/(零.)+/g, "零");
+      }
+
+      alert(SectionToChinese(211));
+
+      //   var chnNumChar = {
+      //     零: 0,
+      //     一: 1,
+      //     二: 2,
+      //     三: 3,
+      //     四: 4,
+      //     五: 5,
+      //     六: 6,
+      //     七: 7,
+      //     八: 8,
+      //     九: 9
+      //   };
+
+      //   var chnNameValue = {
+      //     十: { value: 10, secUnit: false },
+      //     百: { value: 100, secUnit: false },
+      //     千: { value: 1000, secUnit: false },
+      //     万: { value: 10000, secUnit: true },
+      //     亿: { value: 100000000, secUnit: true }
+      //   };
+
+      //   function ChineseToNumber(chnStr) {
+      //     var rtn = 0;
+      //     var section = 0;
+      //     var number = 0;
+      //     var secUnit = false;
+      //     var str = chnStr.split("");
+
+      //     for (var i = 0; i < str.length; i++) {
+      //       var num = chnNumChar[str[i]];
+      //       if (typeof num !== "undefined") {
+      //         number = num;
+      //         if (i === str.length - 1) {
+      //           section += number;
+      //         }
+      //       } else {
+      //         var unit = chnNameValue[str[i]].value;
+      //         secUnit = chnNameValue[str[i]].secUnit;
+      //         if (secUnit) {
+      //           section = (section + number) * unit;
+      //           rtn += section;
+      //           section = 0;
+      //         } else {
+      //           section += number * unit;
+      //         }
+      //         number = 0;
+      //       }
+      //     }
+      //     return rtn + section;
+      //   }
+
+      //   alert(ChineseToNumber("二百二十九"));
+    </script>
+  </body>
+</html>
+
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>输入框sug</title>
+    <script type="text/javascript" src="./JQ/jquery-1.12.2.min.js"></script>
+  </head>
+  <body>
+    <input type="text" οnkeyup="require()" id="search" />
+    <div id="show"></div>
+    <script>
+      function require() {
+        var search = $("#search").val();
+        console.log(search);
+        var _url =
+          "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=" +
+          search +
+          "&json=1&p=3&sid=20144_1467_19033_20515_18240_17949_20388_20456_18133_17001_15202_11615&req=2&csor=2&pwd=s&cb=jQuery110207612423721154653_1467355506619&_=1467355506623";
+        console.log(_url);
+        $.ajax({
+          type: "get",
+          url: _url,
+          async: true,
+          dataType: "jsonp",
+          jsonpCallback: "jQuery110207612423721154653_1467355506619",
+          success: function(data) {
+            console.log(data);
+            var list = data.s;
+            var str = "";
+            for (var i in list) {
+              str += "<p>" + list[i] + "</p>";
+            }
+            $("#show").html(str);
+          }
+        });
+      }
+    </script>
+  </body>
+</html> --> 
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+        	#ani-box{
+        		position:relative;
+        		margin:380px;
+        	}
+			.leaf{
+				transform:rotate(90deg);
+				position:absolute;
+				top:20px;
+				left:20px;
+				height:200px;
+				width:200px;
+				background-color:rgba(180,30,100,0.5);
+				border-radius:200px 0px;
+				transform-origin:right top;
+			}
+			@keyframes trans1{
+				0%{
+					transform:rotate(135deg);
+				}
+				100%{
+					transform:rotate(50deg);
+				}
+			}
+			@keyframes trans2{
+				0% {
+					transform:rotate(135deg);
+				}
+				100% {
+					transform:rotate(81deg);
+				}
+			}
+			@keyframes trans3{
+				0% {
+					transform:rotate(135deg);
+				}
+				100% {
+					transform:rotate(117deg);
+				}
+			}
+			@keyframes trans4{
+				0% {
+					transform:rotate(135deg);
+				}
+				100% {
+					transform:rotate(153deg);
+				}
+			}
+			@keyframes trans5{
+				0% {
+					transform:rotate(135deg);
+				}
+				100% {
+					transform:rotate(186deg);
+				}
+			}
+			@keyframes trans6{
+				0% {
+					transform:rotate(135deg);
+				}
+				100% {
+					transform:rotate(222deg);
+				}
+			}
+			.leaf:nth-Child(1){
+				animation: trans1 5s ease 1;
+				animation-fill-mode : forwards;
+			}
+			.leaf:nth-Child(2){
+				animation: trans2 5s ease 1;
+				animation-fill-mode : forwards;
+			}
+			.leaf:nth-Child(3){
+				animation: trans3 5s ease 1;
+				animation-fill-mode : forwards;
+			}
+			.leaf:nth-Child(4){
+				animation: trans4 5s ease 1;
+				animation-fill-mode : forwards;
+			}
+			.leaf:nth-Child(5){
+				animation: trans5 5s ease 1;
+				animation-fill-mode : forwards;
+			}
+			.leaf:nth-Child(6){
+				animation: trans6 5s ease 1;
+				animation-fill-mode : forwards;
+      }
+    h2{
+      text-align: center;
+    }
+   .layout{  position: relative; 
+        left: 50%; 
+        top: 50%;
+        transform: translate(-50%, -50%);    
+} 
+
+        </style>
+    </head>
+    <body>
+      <h2>送给美女一朵花花</h2>
+      <div class="layout">
+    	<div id="ani-box">
+    		<div class="leaf"></div>
+    		<div class="leaf"></div>
+    		<div class="leaf"></div>
+    		<div class="leaf"></div>
+    		<div class="leaf"></div>
+    		<div class="leaf"></div>
+      </div>
+    </div>
+    </body>
+</html>
